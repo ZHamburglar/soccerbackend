@@ -353,12 +353,21 @@ Soccerplayer.collection.remove()
 soccerplayers.forEach(function (soccerplayer) {
   //Need to edit for soccer players
   console.log('soccerplayer', soccerplayer);
+  console.log('soccerplayer model: ', Soccerplayer);
+
+  // Get these properties with cheerio
+
+  // Add to soccerplayer
+  soccerplayer.imageName = soccerplayer.wsurl;
+  soccerplayer.position = 'something';
+  soccerplayer.age = 24;
+
   const soccerplayerdb= new Soccerplayer(soccerplayer)
   soccerplayerdb.save(function (err) {
     if (err) {
       console.log(err);
     } else {
-      console.log("success");
+      console.log(" added");
     }
   })
 })
